@@ -162,3 +162,30 @@ export const dummyQueries = [
     recommendationCount: Math.round(Math.random() * 50),
   },
 ];
+
+export const counterDate = [
+  {
+    icon: "/members.png",
+    title: 4200,
+    suffix: "+",
+    subtitle: "Members",
+  },
+  {
+    icon: "/post.png",
+    title: 12500,
+    suffix: "+",
+    subtitle: "Posts",
+  },
+  {
+    icon: "/active.png",
+    title: 384,
+    suffix: "",
+    subtitle: "Active Today",
+  },
+  {
+    icon: "/satisfaction.png",
+    title: 98,
+    suffix: "%",
+    subtitle: "Satisfaction Rate",
+  },
+];
