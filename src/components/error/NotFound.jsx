@@ -3,6 +3,7 @@ import Header from "../header/Header";
 import Container from "../common/Container";
 import { Link, useRouteError } from "react-router";
 import { buttonVariants } from "../ui/button";
+import Footer from "../footer/Footer";
 
 const NotFound = ({
   message = "Oops! The page you're looking for seems to have taken a different path.\n It might be under construction or doesn't exist.",
@@ -31,7 +32,7 @@ const NotFound = ({
           </Link>
         </div>
       </Container>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
