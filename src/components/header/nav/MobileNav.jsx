@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetFooter,
@@ -27,15 +26,15 @@ const MobileNav = () => {
         <SheetContent side="right" className="border-none overflow-auto px-4">
           <SheetHeader>
             <SheetTitle className="flex items-center justify-center">
-              <Logo />
+              <Logo closeOnClick />
             </SheetTitle>
             <SheetDescription className="sr-only">
               This is a mobile navigation.
             </SheetDescription>
           </SheetHeader>
-          <Nav />
+          <Nav closeOnClick />
           <SheetFooter>
-            <NavActions />
+            <NavActions closeOnClick />
           </SheetFooter>
         </SheetContent>
       </Sheet>

@@ -25,3 +25,29 @@ export const NAV_LINKS = [
     isPrivate: true,
   },
 ];
+
+export const SLIDER_DATA = [
+  {
+    title: "Looking for Better Product Choices?",
+    subtitle:
+      "Get community-powered recommendations for smarter shopping decisions.",
+    highlight: "Product",
+    src: "/slide-1.png",
+    btnText: "Explore Alternatives",
+  },
+  {
+    title: "Not Sure Which Product to Pick?",
+    subtitle: "Ask real users for opinions, reviews, and better suggestions.",
+    highlight: "Pick?",
+    src: "/slide-2.png",
+    btnText: "Ask a Question",
+  },
+  {
+    title: "Help Others Choose Right",
+    subtitle:
+      "Share your product recommendations to guide others just like you.",
+    highlight: "Right",
+    src: "/slide-3.png",
+    btnText: "Add a Recommendation",
+  },
+];

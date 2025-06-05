@@ -44,34 +44,33 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@theme{
-  --color-primary-dark:var(--primary-dark);
-  --color-dark:var(--dark);
+@theme {
+  --color-primary-dark: var(--primary-dark);
+  --color-dark: var(--dark);
 
-  --breakpoint-xs:400px;
-
+  --breakpoint-xs: 400px;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #FAFAFA;
+  --background: #fafafa;
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #C5172E;
-  --primary-dark:#7C1E41;
-  --dark:#1F1F1F;
+  --primary: #c5172e;
+  --primary-dark: #7c1e41;
+  --dark: #1f1f1f;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: #666666;
   --muted-foreground: oklch(0.556 0 0);
-  --accent: #FFF056;
+  --accent: #fff056;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #E0E0E0;
+  --border: #e0e0e0;
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -89,7 +88,48 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
-
 body {
   font-family: "Manrope", sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary) 30%, #ff6a3d);
+  background-clip: text;
+  color: transparent;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  top: 50%;
+  transform: translateY(50%);
+  max-width: 1280px;
+  width: 90%;
+  inset: 0;
+  margin: 0 auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal
+  span {
+  pointer-events: all;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  width: 4px;
+  background-color: var(--primary);
+  height: 18px;
+  border-radius: 99999px;
+  transition: all 300ms ease-in;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--primary) !important;
+  opacity: 1 !important;
+  height: 25px !important;
 }
