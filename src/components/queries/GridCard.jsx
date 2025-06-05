@@ -21,7 +21,7 @@ const GridCard = ({
   recommendationCount,
 }) => {
   return (
-    <Card className="bg-background border-none shadow-none pt-0 overflow-clip gap-3 pb-4 justify-between">
+    <Card className="bg-background border-none shadow-none pt-0 overflow-clip gap-3 pb-4 justify-between h-full">
       <CardHeader className="px-0 relative">
         <img
           src={productImageURL}
