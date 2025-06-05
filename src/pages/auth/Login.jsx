@@ -3,7 +3,7 @@ import React from "react";
 
 const Login = () => {
   return (
-    <main className="grid sm:grid-cols-[1fr_0.7fr] lg:grid-cols-[1fr_0.5fr] h-[100dvh] overflow-clip">
+    <main className="grid sm:grid-cols-[1fr_0.7fr] lg:grid-cols-[1fr_0.5fr] min-h-[100dvh] overflow-auto">
       <div className="bg-background hidden sm:grid place-items-center">
         <img
           src="/login.png"
