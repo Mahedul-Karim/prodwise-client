@@ -24,7 +24,7 @@ const LoginForm = () => {
       <div className="flex items-center justify-center border-b border-border py-4">
         <Logo />
       </div>
-      <Container className="p-4 flex flex-col items-center justify-center h-full">
+      <Container className="p-4 flex flex-col items-center justify-center h-[calc(100%_-_73px)]">
         <Card className="w-full border-none shadow-none gap-4 max-w-[360px]">
           <CardHeader className="px-0">
             <CardTitle className="text-dark text-xl font-bold text-center">
@@ -32,7 +32,7 @@ const LoginForm = () => {
             </CardTitle>
           </CardHeader>
           <CardContent className="px-0">
-            <form className="space-y-4" onSubmit={handleSubmit} >
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="space-y-2">
                 <Label className="font-semibold text-dark">Email:</Label>
                 <Input
@@ -49,7 +49,9 @@ const LoginForm = () => {
                   className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
                 />
               </div>
-              <Button className="w-full font-semibold h-10 rounded-full">Login</Button>
+              <Button className="w-full font-semibold h-10 rounded-full">
+                Login
+              </Button>
             </form>
           </CardContent>
           <CardFooter className="px-0 flex-col">
