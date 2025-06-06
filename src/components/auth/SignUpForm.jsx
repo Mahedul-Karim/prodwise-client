@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../common/Logo";
 import Container from "../common/Container";
 
@@ -12,11 +12,50 @@ import {
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { toast } from "sonner";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "@/config/firebase.config";
+import { Loader } from "lucide-react";
 
 const SignUpForm = () => {
-  const handleSubmit = (e) => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!fullName || !email || !password || !photoURL) {
+      return toast.error("All fields are required");
+    }
+
+    try {
+      setIsLoading(true);
+
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      await updateProfile(user, {
+        displayName: fullName,
+        photoURL: photoURL,
+      });
+
+      toast.success("Account creation was successfull");
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -39,6 +78,9 @@ const SignUpForm = () => {
                   type={"text"}
                   placeholder="Your full name"
                   className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium rounded-full"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
               <div className="space-y-2">
@@ -47,6 +89,9 @@ const SignUpForm = () => {
                   type={"email"}
                   placeholder="Your email address"
                   className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
               <div className="space-y-2">
@@ -55,17 +100,27 @@ const SignUpForm = () => {
                   type={"text"}
                   placeholder="Your image link"
                   className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  value={photoURL}
+                  onChange={(e) => setPhotoURL(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
               <div className="space-y-2">
                 <Label className="font-semibold text-dark">Password:</Label>
                 <Input
-                  type={"text"}
+                  type={"password"}
                   placeholder="Your password"
                   className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
-              <Button className="w-full font-semibold h-10 rounded-full">
+              <Button
+                className="w-full font-semibold h-10 rounded-full"
+                disabled={isLoading}
+              >
+                {isLoading && <Loader className="animate-spin text-white" />}{" "}
                 Sign Up
               </Button>
             </form>
