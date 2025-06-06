@@ -1,4 +1,6 @@
 import Container from "@/components/common/Container";
+import GridQueries from "@/components/queries/all-queries/GridQueries";
+import ListQueries from "@/components/queries/all-queries/ListQueries";
 import SearchQueries from "@/components/queries/all-queries/Search";
 import { Button } from "@/components/ui/button";
 import { Grid2x2, ListCollapse } from "lucide-react";
@@ -35,6 +37,10 @@ const AllQueries = () => {
           </div>
           <SearchQueries />
         </div>
+        <section className="mt-8">
+          {active === "grid" && <GridQueries />}
+          {active === "list" && <ListQueries />}
+        </section>
       </Container>
     </main>
   );
