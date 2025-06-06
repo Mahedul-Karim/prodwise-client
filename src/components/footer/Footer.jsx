@@ -26,108 +26,75 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4">
-            Contact Info
-          </h3>
-          <ul className="space-y-4">
-            <li className="flex items-start">
-              <MapPin className="h-5 w-5 text-background/80 mr-2 mt-1 flex-shrink-0" />
-              <span className="text-background/80">
-                123 Green Avenue
-                <br />
-                Eco City, EC 98765
-              </span>
-            </li>
-            <li className="flex items-center">
-              <Phone className="h-5 w-5 text-background/80 mr-2 flex-shrink-0" />
-              <span className="text-background/80">(555) 123-4567</span>
-            </li>
-            <li className="flex items-center">
-              <Mail className="h-5 w-5 text-background/80 mr-2 flex-shrink-0" />
-              <span className="text-background/80">hello@greenspace.com</span>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-white font-semibold mb-4">
-            Terms
-          </h3>
+          <h3 className="text-white font-semibold mb-4">Company</h3>
           <ul className="space-y-4">
             <li>
-              <Link
-                to="/"
-                className="text-background/80"
-              >
-                Privacy Policy
+              <Link to="/" className="text-background/80">
+                About
               </Link>
             </li>
             <li>
-              <Link
-                to="/"
-                className="text-background/80"
-              >
-                Terms of Service
+              <Link to="/" className="text-background/80">
+                Contact
               </Link>
             </li>
             <li>
-              <Link
-                to="/"
-                className="text-background/80"
-              >
-                Cookie Policy
+              <Link to="/" className="text-background/80">
+                Blog
               </Link>
             </li>
             <li>
-              <Link
-                to="/"
-                className="text-background/80"
-              >
-                Accessiblity
+              <Link to="/" className="text-background/80">
+                Career
               </Link>
             </li>
           </ul>
         </div>
         <div>
-          <h3 className="text-white font-semibold mb-4">
-            Contact Us
-          </h3>
+          <h3 className="text-white font-semibold mb-4">Get Help</h3>
+          <ul className="space-y-4">
+            <li>
+              <Link to="/" className="text-background/80">
+                Forum
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="text-background/80">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/" className="text-background/80">
+                Community
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 className="text-white font-semibold mb-4">Contact Us</h3>
           <div className="flex space-x-4">
-            <Link
-              href="/"
-              className="text-background/80"
-            >
+            <Link href="/" className="text-background/80">
               <Facebook className="h-6 w-6" />
             </Link>
-            <Link
-              href="#"
-              className="text-background/80"
-            >
+            <Link href="#" className="text-background/80">
               <Instagram className="h-6 w-6" />
             </Link>
-            <Link
-              href="#"
-              className="text-background/80"
-            >
+            <Link href="#" className="text-background/80">
               <Twitter className="h-6 w-6" />
             </Link>
-            <Link
-              href="#"
-              className="text-background/80"
-            >
+            <Link href="#" className="text-background/80">
               <Linkedin className="h-6 w-6" />
             </Link>
-            <Link
-              href="#"
-              className="text-background/80"
-            >
+            <Link href="#" className="text-background/80">
               <Github className="h-6 w-6" />
             </Link>
           </div>
         </div>
       </Container>
       <Container className="border-t border-border text-center text-background/80 mt-8 pb-4">
-      <p className="mt-4 text-sm">&copy; {new Date().getFullYear()}, prodwise</p>
-            
+        <p className="mt-4 text-sm">
+          &copy; {new Date().getFullYear()}, prodwise
+        </p>
       </Container>
     </footer>
   );
