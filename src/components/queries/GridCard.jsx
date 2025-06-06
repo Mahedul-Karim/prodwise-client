@@ -9,7 +9,7 @@ import { Badge } from "../ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { MessageCircle, MessageCircleWarning } from "lucide-react";
 import { Link } from "react-router";
-import { buttonVariants } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 
 const GridCard = ({
   id,
@@ -19,6 +19,7 @@ const GridCard = ({
   queryTitle,
   boycottingReason,
   recommendationCount,
+  isUserQuery = false,
 }) => {
   return (
     <Card className="bg-background border-none shadow-none pt-0 overflow-clip gap-3 pb-4 justify-between h-full">
@@ -35,8 +36,10 @@ const GridCard = ({
           </Badge>
         </div>
       </CardHeader>
-      <CardContent className="px-4 flex flex-col gap-2">
-        <h2 className="xs:text-lg sm:text-xl font-bold text-dark">{productName}</h2>
+      <CardContent className="px-2 xs:px-4 flex flex-col gap-2">
+        <h2 className="xs:text-lg sm:text-xl font-bold text-dark">
+          {productName}
+        </h2>
         <p className="text-sm text-muted font-semibold flex items-center gap-2 flex-wrap">
           by{" "}
           <Badge
@@ -61,13 +64,27 @@ const GridCard = ({
           </AlertDescription>
         </Alert>
       </CardContent>
-      <CardFooter className="px-4">
+      <CardFooter className="px-2 xs:px-4 flex-col gap-2">
         <Link
           to={`/query/${id}`}
-          className={buttonVariants({ variant: "default",className:"w-full font-semibold !text-dark !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9" })}
+          className={buttonVariants({
+            variant: "default",
+            className:
+              "w-full font-semibold !text-dark !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9",
+          })}
         >
-          Recommend
+          {!isUserQuery ? "Recommend" : "View Details"}
         </Link>
+        {isUserQuery && (
+          <>
+            <Button className={"w-full font-semibold bg-blue-700 hover:bg-blue-700 text-white xs:text-sm text-xs !h-8 xs:!h-9"}>
+              Update
+            </Button>
+            <Button className={"w-full font-semibold hover:bg-primary xs:text-sm text-xs !h-8 xs:!h-9"}>
+             Delete
+            </Button>
+          </>
+        )}
       </CardFooter>
     </Card>
   );

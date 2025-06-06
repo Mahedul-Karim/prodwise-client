@@ -5,6 +5,8 @@ import SignUp from "@/pages/auth/SignUp";
 import Home from "@/pages/Home";
 import AllQueries from "@/pages/queries/AllQueries";
 import { createBrowserRouter } from "react-router";
+import PrivateRoutes from "./PrivateRoutes";
+import MyQueries from "@/pages/queries/MyQueries";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ export const router = createBrowserRouter([
       {
         path: "/queries",
         element: <AllQueries />,
+      },
+      {
+        path: "/my-queries",
+        element: (
+          <PrivateRoutes>
+            <MyQueries />
+          </PrivateRoutes>
+        ),
       },
     ],
   },
