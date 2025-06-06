@@ -9,10 +9,15 @@ const Provider = ({ children }) => {
   const [token, setToken] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
+
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser?.providerData?.[0]);
-      setToken(currentUser.getIdToken(true));
+
+      const idToken = await currentUser.getIdToken(true);
+
+      setToken(idToken);
+
       setIsLoading(false);
     });
 
