@@ -15,7 +15,7 @@ import { Button } from "../ui/button";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "@/config/firebase.config";
+import { auth, signInWithGoogle } from "@/config/firebase.config";
 import { Loader } from "lucide-react";
 
 const SignUpForm = () => {
@@ -55,6 +55,16 @@ const SignUpForm = () => {
       toast.error(error.message);
     } finally {
       setIsLoading(false);
+    }
+  };
+
+  const handleSocial = async () => {
+    try {
+      await signInWithGoogle();
+
+      navigate("/");
+    } catch (error) {
+      toast.error(error.message);
     }
   };
 
@@ -135,6 +145,7 @@ const SignUpForm = () => {
               <Button
                 variant="outline"
                 className="bg-transparent font-semibold w-full border-border flex items-center gap-2 dark:bg-transparent hover:bg-transparent dark:hover:bg-transparent text-dark/70 hover:text-dark/70 h-10 rounded-full"
+                onClick={handleSocial}
               >
                 <img src="/google.svg" alt="" className="size-5 invert-50" />
                 Google
