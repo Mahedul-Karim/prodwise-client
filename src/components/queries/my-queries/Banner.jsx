@@ -2,8 +2,11 @@ import Highlight from "@/components/common/Highlight";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import React from "react";
+import { useNavigate } from "react-router";
 
 const Banner = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="grid sm:grid-cols-2 gap-2">
       <div className="flex flex-col items-center sm:items-start justify-center gap-2 relative z-[1] sm:pl-4">
@@ -22,7 +25,10 @@ const Banner = () => {
           decisions — starting with your own query.
         </p>
         <div>
-          <Button className="sm:h-10 font-semibold rounded-full mt-2 sm:px-8 px-5 hover:bg-primary hover:scale-[1.1]">
+          <Button
+            className="sm:h-10 font-semibold rounded-full mt-2 sm:px-8 px-5 hover:bg-primary hover:scale-[1.1]"
+            onClick={() => navigate("/query/create")}
+          >
             <Plus /> Add New Query
           </Button>
         </div>
