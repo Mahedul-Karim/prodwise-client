@@ -8,6 +8,7 @@ import { createBrowserRouter } from "react-router";
 import PrivateRoutes from "./PrivateRoutes";
 import MyQueries from "@/pages/queries/MyQueries";
 import CreateQuery from "@/pages/queries/CreateQuery";
+import QueryDetails from "@/pages/queries/QueryDetails";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
             <CreateQuery />
           </PrivateRoutes>
         ),
+      },
+      {
+        path: "/query/:queryId",
+        element: <QueryDetails />,
       },
     ],
   },
