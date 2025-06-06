@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../common/Logo";
 import Container from "../common/Container";
 
@@ -12,11 +12,41 @@ import {
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { Loader } from "lucide-react";
+import { toast } from "sonner";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "@/config/firebase.config";
 
 const LoginForm = () => {
-  const handleSubmit = (e) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!email || !password) {
+      return toast.error("All fields are required");
+    }
+
+    try {
+      setIsLoading(true);
+
+      await signInWithEmailAndPassword(auth, email, password);
+
+      navigate("/");
+    } catch (error) {
+      if (error.code === "auth/invalid-credential") {
+        return toast.error("Invalid credential");
+      }
+
+      toast.error(error.message);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -39,6 +69,9 @@ const LoginForm = () => {
                   type={"email"}
                   placeholder="Type your email address"
                   className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium rounded-full"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
               <div className="space-y-2">
@@ -47,10 +80,16 @@ const LoginForm = () => {
                   type={"password"}
                   placeholder="Type your password"
                   className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  disabled={isLoading}
                 />
               </div>
-              <Button className="w-full font-semibold h-10 rounded-full">
-                Login
+              <Button
+                className="w-full font-semibold h-10 rounded-full"
+                disabled={isLoading}
+              >
+                {isLoading && <Loader className="animate-spin" />} Login
               </Button>
             </form>
           </CardContent>

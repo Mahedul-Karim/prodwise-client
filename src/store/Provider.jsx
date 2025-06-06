@@ -6,18 +6,20 @@ const Context = createContext();
 
 const Provider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, async (currentUser) => {
       setUser(currentUser?.providerData?.[0]);
 
-      const idToken = await currentUser.getIdToken(true);
+      if (currentUser) {
+        const idToken = await currentUser.getIdToken(true);
 
-      setToken(idToken);
-
+        setToken(idToken);
+      } else {
+        setToken(null);
+      }
       setIsLoading(false);
     });
 
