@@ -1,13 +1,30 @@
 import Container from "@/components/common/Container";
+import Empty from "@/components/error/Empty";
 import GridQueries from "@/components/queries/all-queries/GridQueries";
 import ListQueries from "@/components/queries/all-queries/ListQueries";
 import SearchQueries from "@/components/queries/all-queries/Search";
 import { Button } from "@/components/ui/button";
-import { Grid2x2, ListCollapse } from "lucide-react";
-import React, { useState } from "react";
+import { useApi } from "@/hooks/useApi";
+import { Grid2x2, ListCollapse, Loader } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router";
 
 const AllQueries = () => {
   const [active, setActive] = useState("grid");
+
+  const [searchParams] = useSearchParams();
+
+  const search = searchParams.get("search") || "";
+
+  const { getQuery, isLoading } = useApi();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getQuery({
+      url: `query?search=${search}`,
+    }).then((res) => setData(res?.queries));
+  }, [search]);
 
   return (
     <main className="border-t border-border py-8 md:py-16">
@@ -38,8 +55,22 @@ const AllQueries = () => {
           <SearchQueries />
         </div>
         <section className="mt-8">
-          {active === "grid" && <GridQueries />}
-          {active === "list" && <ListQueries />}
+          {isLoading && (
+            <div className="grid place-items-center h-[200px]">
+              <Loader className="size-12 text-primary animate-spin" />
+            </div>
+          )}
+          {!isLoading && data?.length === 0 && (
+            <div>
+              <Empty title="No queries found!" />
+            </div>
+          )}
+          {!isLoading && data?.length > 0 && (
+            <>
+              {active === "grid" && <GridQueries data={data} />}
+              {active === "list" && <ListQueries data={data} />}
+            </>
+          )}
         </section>
       </Container>
     </main>

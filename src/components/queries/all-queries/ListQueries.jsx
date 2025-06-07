@@ -1,22 +1,21 @@
 import React from "react";
 
-import { dummyQueries } from "@/lib/data";
 import ListCard from "../ListCard";
 
-const ListQueries = () => {
+const ListQueries = ({ data }) => {
   return (
     <div className="flex flex-col gap-4">
-      {dummyQueries.map((data, i) => (
+      {data?.map((query) => (
         <ListCard
-          key={i}
-          id={i}
-          productName={data.productName}
-          productBrand={data.productBrand}
-          productImageURL={data.productImageURL}
-          queryTitle={data.queryTitle}
-          boycottingReason={data.boycottingReason}
-          recommendationCount={data.recommendationCount}
-          currentDate={data.currentDate}
+          key={query._id}
+          id={query._id}
+          productName={query.productName}
+          productBrand={query.productBrand}
+          productImageURL={query.productImage}
+          queryTitle={query.queryTitle}
+          boycottingReason={query.boycottingReason}
+          recommendationCount={query.recommendationCount}
+          currentDate={query.currentDate}
         />
       ))}
     </div>

@@ -1,20 +1,19 @@
-import { dummyQueries } from "@/lib/data";
 import React from "react";
 import GridCard from "../GridCard";
 
-const GridQueries = () => {
+const GridQueries = ({ data }) => {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:gap-4 gap-2">
-      {dummyQueries.map((data, i) => (
+      {data?.map((query) => (
         <GridCard
-          key={i}
-          id={i}
-          productName={data.productName}
-          productBrand={data.productBrand}
-          productImageURL={data.productImageURL}
-          queryTitle={data.queryTitle}
-          boycottingReason={data.boycottingReason}
-          recommendationCount={data.recommendationCount}
+          key={query._id}
+          id={query._id}
+          productName={query.productName}
+          productBrand={query.productBrand}
+          productImageURL={query.productImage}
+          queryTitle={query.queryTitle}
+          boycottingReason={query.boycottingReason}
+          recommendationCount={query.recommendationCount}
         />
       ))}
     </div>
