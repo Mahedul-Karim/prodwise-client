@@ -52,19 +52,6 @@ export const SLIDER_DATA = [
   },
 ];
 
-export const dummyQueries = [
-  
-  {
-    productName: "SpeedDry Hair Dryer",
-    productBrand: "StylePro",
-    productImageURL: "https://i.ibb.co/rR2qSMbL/query-12.jpg",
-    queryTitle: "Looking for quiet hair dryers with similar speed?",
-    boycottingReason: "Very noisy and gets too hot quickly.",
-    currentDate: new Date("2025-05-27T23:05:14.016Z"),
-    recommendationCount: Math.round(Math.random() * 50),
-  },
-];
-
 export const counterDate = [
   {
     icon: "/members.png",

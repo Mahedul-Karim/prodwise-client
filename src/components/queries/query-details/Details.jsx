@@ -5,48 +5,52 @@ import { MessageCircle, PackageSearch, User } from "lucide-react";
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const Details = () => {
+const Details = ({ data }) => {
   return (
     <section className="p-4 bg-white rounded-md grid md:grid-cols-2 gap-4">
       <div className="relative">
         <img
-          src={"https://i.ibb.co/rR2qSMbL/query-12.jpg"}
+          src={data?.productImage}
           alt=""
-          className="aspect-[16/10] md:aspect-auto h-full object-cover w-full rounded-md"
+          className="aspect-[16/10] md:aspect-auto h-full object-cover w-full rounded-md max-h-[450px]"
         />
         <div className="absolute top-2 xs:top-4 right-2 xs:right-4">
           <Badge className="bg-accent text-dark rounded-full font-semibold xs:text-sm">
             <MessageCircle />
-            24
+            {data?.recommendationCount}
           </Badge>
         </div>
       </div>
       <div className="flex flex-col gap-2 justify-center">
         <h1 className="text-xl xs:text-2xl font-bold text-dark">
-          Looking for quiet hair dryers with similar speed?
+          {data?.queryTitle}
         </h1>
         <p className="text-muted text-sm xs:text-base font-medium flex items-center gap-2 flex-wrap">
           brand:
           <Badge
             className={"rounded-full bg-blue-200 text-blue-800 font-semibold"}
           >
-            StylePro
+            {data?.productBrand}
           </Badge>{" "}
         </p>
 
         <p className="text-muted text-sm flex items-center gap-2 flex-wrap">
-          posted on: {formateDate(new Date("2025-05-27T23:05:14.016Z"))}
+          posted on: {formateDate(new Date(data?.currentDate))}
         </p>
         <div className="flex items-center gap-4">
           <p className="text-muted text-sm">posted by:</p>
           <div className="flex items-center gap-2">
             <Avatar className="size-8 xs:size-10">
-              <AvatarImage src="https://github.com/shadcn.png" />
+              <AvatarImage src={data?.creatorImage} />
               <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div>
-              <h2 className="text-dark font-bold text-sm xs:text-base">John Doe</h2>
-              <p className="text-muted text-xs xs:text-sm">test@gmail.com</p>
+              <h2 className="text-dark font-bold text-sm xs:text-base">
+                {data?.creatorName}
+              </h2>
+              <p className="text-muted text-xs xs:text-sm">
+                {data?.creatorEmail}
+              </p>
             </div>
           </div>
         </div>
@@ -54,7 +58,7 @@ const Details = () => {
           <PackageSearch />
           <AlertTitle className="text-dark font-semibold">Product</AlertTitle>
           <AlertDescription className="text-muted">
-            SpeedDry Hair Dryer
+            {data?.productName}
           </AlertDescription>
         </Alert>
         <Alert className="bg-red-50 border-red-300">
@@ -62,7 +66,7 @@ const Details = () => {
             Reported Issue!
           </AlertTitle>
           <AlertDescription className="text-red-500">
-            Very noisy and gets too hot quickly.
+            {data?.boycottingReason}
           </AlertDescription>
         </Alert>
       </div>

@@ -4,7 +4,6 @@ import GridCard from "@/components/queries/GridCard";
 import Banner from "@/components/queries/my-queries/Banner";
 import EmptyQuery from "@/components/queries/my-queries/EmptyQuery";
 import { useApi } from "@/hooks/useApi";
-import { dummyQueries } from "@/lib/data";
 import { Loader } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
