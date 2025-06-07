@@ -1,57 +1,51 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Container from "../common/Container";
 import Title from "./sections/Title";
-import { dummyQueries } from "@/lib/data";
 import GridCard from "../queries/GridCard";
-import { useInView, motion } from "framer-motion";
-
-const staggerContainer = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.4,
-    },
-  },
-};
-
-const cardVariant = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
-  show: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 1, ease: "easeOut" },
-  },
-};
+import { Loader } from "lucide-react";
+import Empty from "../error/Empty";
+import { useApi } from "@/hooks/useApi";
 
 const RecentQueries = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const { isLoading, getQuery } = useApi();
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    getQuery({
+      url: "query/recent",
+    }).then((data) => setData(data?.queries));
+  }, []);
 
   return (
     <Container className="py-8 md:py-16">
       <Title>Recent Queries</Title>
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:gap-4 gap-2"
-        variants={staggerContainer}
-        initial="hidden"
-        animate={isInView ? "show" : "hidden"}
-        ref={ref}
-      >
-        {dummyQueries.map((data, i) => (
-          <motion.div key={i} variants={cardVariant}>
+      {isLoading && (
+        <div className="h-[250px] grid place-items-center">
+          <Loader className="text-primary animate-spin size-12" />
+        </div>
+      )}
+      {!isLoading && data?.length === 0 && (
+        <div>
+          <Empty title={"No queries found!"} />
+        </div>
+      )}
+      {!isLoading && data?.length > 0 && (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:gap-4 gap-2">
+          {data?.map((query, i) => (
             <GridCard
-              id={i}
-              productName={data.productName}
-              productBrand={data.productBrand}
-              productImageURL={data.productImageURL}
-              queryTitle={data.queryTitle}
-              boycottingReason={data.boycottingReason}
-              recommendationCount={data.recommendationCount}
+              key={query._id}
+              id={query._id}
+              productName={query.productName}
+              productBrand={query.productBrand}
+              productImageURL={query.productImage}
+              queryTitle={query.queryTitle}
+              boycottingReason={query.boycottingReason}
+              recommendationCount={query.recommendationCount}
             />
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </div>
+      )}
     </Container>
   );
 };
