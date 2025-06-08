@@ -3,25 +3,39 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useApi } from "@/hooks/useApi";
+import { useProvider } from "@/store/Provider";
 import { Loader } from "lucide-react";
 import React, { useState } from "react";
 import { toast } from "sonner";
 
-const QueryForm = () => {
-  const [productName, setProductName] = useState("");
-  const [productBrand, setProductBrand] = useState("");
-  const [productImage, setProductImage] = useState("");
-  const [queryTitle, setQueryTitle] = useState("");
-  const [boycottingReason, setBoycottingReason] = useState("");
+const QueryForm = ({ isToUpdate = false }) => {
+  const { queryToEdit } = useProvider();
+
+  const [productName, setProductName] = useState(
+    queryToEdit?.productName || ""
+  );
+  const [productBrand, setProductBrand] = useState(
+    queryToEdit?.productBrand || ""
+  );
+  const [productImage, setProductImage] = useState(
+    queryToEdit?.productImage || ""
+  );
+  const [queryTitle, setQueryTitle] = useState(queryToEdit?.queryTitle || "");
+  const [boycottingReason, setBoycottingReason] = useState(
+    queryToEdit?.boycottingReason || ""
+  );
 
   const { runQuery, isLoading } = useApi({
     onSuccess: (data) => {
       toast.success(data.message);
-      setProductName("");
-      setProductBrand("");
-      setProductImage("");
-      setQueryTitle("");
-      setBoycottingReason("");
+
+      if (!isToUpdate) {
+        setProductName("");
+        setProductBrand("");
+        setProductImage("");
+        setQueryTitle("");
+        setBoycottingReason("");
+      }
     },
     onError: (err) => {
       toast.error(err.message);
@@ -30,6 +44,36 @@ const QueryForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (isToUpdate) {
+      const newObject = {
+        productName,
+        productBrand,
+        productImage,
+        queryTitle,
+        boycottingReason,
+      };
+
+      const updatedQuery = {};
+
+      for (const query in newObject) {
+        if (queryToEdit[query] !== newObject[query]) {
+          updatedQuery[query] = newObject[query];
+        }
+      }
+
+      if (Object.keys(updatedQuery).length === 0) {
+        return toast.error("No fields were changed");
+      }
+
+      runQuery({
+        url: `query/${queryToEdit?._id}`,
+        method: "PATCH",
+        data: updatedQuery,
+      });
+
+      return;
+    }
 
     runQuery({
       url: "query",

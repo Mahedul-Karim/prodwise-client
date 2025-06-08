@@ -44,6 +44,7 @@ const MyQueries = () => {
                   boycottingReason={query.boycottingReason}
                   recommendationCount={query.recommendationCount}
                   isUserQuery
+                  query={query}
                 />
               ))}
             </div>

@@ -8,8 +8,9 @@ import {
 import { Badge } from "../ui/badge";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { MessageCircle, MessageCircleWarning } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Button, buttonVariants } from "../ui/button";
+import { useProvider } from "@/store/Provider";
 
 const GridCard = ({
   id,
@@ -20,7 +21,12 @@ const GridCard = ({
   boycottingReason,
   recommendationCount,
   isUserQuery = false,
+  query,
 }) => {
+  const { setQueryToEdit } = useProvider();
+
+  const navigate = useNavigate();
+
   return (
     <Card className="bg-background border-none shadow-none pt-0 overflow-clip gap-3 pb-4 justify-between h-full">
       <CardHeader className="px-0 relative">
@@ -77,11 +83,23 @@ const GridCard = ({
         </Link>
         {isUserQuery && (
           <>
-            <Button className={"w-full font-semibold bg-blue-700 hover:bg-blue-700 text-white xs:text-sm text-xs !h-8 xs:!h-9"}>
+            <Button
+              className={
+                "w-full font-semibold bg-blue-700 hover:bg-blue-700 text-white xs:text-sm text-xs !h-8 xs:!h-9"
+              }
+              onClick={() => {
+                setQueryToEdit(query);
+                navigate("/query/update");
+              }}
+            >
               Update
             </Button>
-            <Button className={"w-full font-semibold hover:bg-primary xs:text-sm text-xs !h-8 xs:!h-9"}>
-             Delete
+            <Button
+              className={
+                "w-full font-semibold hover:bg-primary xs:text-sm text-xs !h-8 xs:!h-9"
+              }
+            >
+              Delete
             </Button>
           </>
         )}

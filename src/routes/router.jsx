@@ -9,6 +9,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import MyQueries from "@/pages/queries/MyQueries";
 import CreateQuery from "@/pages/queries/CreateQuery";
 import QueryDetails from "@/pages/queries/QueryDetails";
+import UpdateQuery from "@/pages/queries/UpdateQuery";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <CreateQuery />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/query/update",
+        element: (
+          <PrivateRoutes>
+            <UpdateQuery />
           </PrivateRoutes>
         ),
       },

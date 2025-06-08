@@ -7,6 +7,7 @@ const Context = createContext();
 const Provider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const [queryToEdit, setQueryToEdit] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -27,7 +28,11 @@ const Provider = ({ children }) => {
   }, []);
 
   return (
-    <Context value={{ user, setUser, isLoading, token }}>{children}</Context>
+    <Context
+      value={{ user, setUser, isLoading, token, queryToEdit, setQueryToEdit }}
+    >
+      {children}
+    </Context>
   );
 };
 
