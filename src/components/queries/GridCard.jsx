@@ -22,6 +22,8 @@ const GridCard = ({
   recommendationCount,
   isUserQuery = false,
   query,
+  setSelectedId,
+  setOpen,
 }) => {
   const { setQueryToEdit } = useProvider();
 
@@ -98,6 +100,10 @@ const GridCard = ({
               className={
                 "w-full font-semibold hover:bg-primary xs:text-sm text-xs !h-8 xs:!h-9"
               }
+              onClick={() => {
+                setSelectedId(id);
+                setOpen(true);
+              }}
             >
               Delete
             </Button>
