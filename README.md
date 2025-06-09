@@ -1,12 +1,27 @@
-# React + Vite
+# 🌟 Project Name and Purpose
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Prodwise - a community application where user can post a about any product they are using and ask for better replacment recommendation from the community.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 [Live URL](https://prodwise-client.vercel.app/)
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 🚀 Key Features
+
+- User can create account, upload their image and post about a product
+- Users can view other's products and recommend a better one if they know about it
+- Used firebase and jwt to increase the security
+
+
+
+## 📦 NPM Packages Used
+
+List the key packages with a short reason why they’re used:
+
+- `axios` – For making HTTP requests
+- `framer-motion` - For animation
+- `Swiper js` - For making the hero slider
+- `Firebase` - For authentication
+- `Shadcn UI` - To build the interface
