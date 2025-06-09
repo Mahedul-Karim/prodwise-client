@@ -10,6 +10,7 @@ import MyQueries from "@/pages/queries/MyQueries";
 import CreateQuery from "@/pages/queries/CreateQuery";
 import QueryDetails from "@/pages/queries/QueryDetails";
 import UpdateQuery from "@/pages/queries/UpdateQuery";
+import RecommendationsForMe from "@/pages/recommendations/RecommendationsForMe";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +47,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoutes>
             <UpdateQuery />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/recommendations",
+        element: (
+          <PrivateRoutes>
+            <RecommendationsForMe />
           </PrivateRoutes>
         ),
       },
