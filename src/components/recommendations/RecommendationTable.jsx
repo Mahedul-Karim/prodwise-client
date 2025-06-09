@@ -80,7 +80,7 @@ const RecommendationTable = ({
                 </p>
               </TableCell>
               <TableCell>
-                <p className="text-muted font-medium">{rec?.userName}</p>
+                <p className="text-muted font-medium">{rec?.recommenderName}</p>
               </TableCell>
               <TableCell>
                 <p className="text-dark font-semibold">
