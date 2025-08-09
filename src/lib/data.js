@@ -10,6 +10,11 @@ export const NAV_LINKS = [
     isPrivate: false,
   },
   {
+    label: "About Us",
+    to: "/about-us",
+    isPrivate: false,
+  },
+  {
     label: "Recommendations For Me",
     to: "/recommendations",
     isPrivate: true,

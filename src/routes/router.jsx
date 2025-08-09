@@ -12,6 +12,7 @@ import QueryDetails from "@/pages/queries/QueryDetails";
 import UpdateQuery from "@/pages/queries/UpdateQuery";
 import RecommendationsForMe from "@/pages/recommendations/RecommendationsForMe";
 import MyRecommendations from "@/pages/recommendations/MyRecommendations";
+import AboutUs from "@/pages/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "/query/:queryId",
         element: <QueryDetails />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
       },
     ],
   },
