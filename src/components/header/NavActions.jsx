@@ -20,7 +20,7 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
           <Button
             variant="outline"
             className={
-              "font-semibold border-primary text-primary hover:bg-primary hover:text-white px-6 h-8.5 w-full rounded-md lg:rounded-full"
+              "font-semibold border-primary text-primary hover:bg-primary hover:text-white px-6 h-8.5 w-full rounded-md lg:rounded-full dark:bg-transparent dark:hover:bg-primary dark:hover:border-primary dark:text-white"
             }
             onClick={() => navigate("/login")}
           >
@@ -32,7 +32,7 @@ const NavActions = ({ className = "", closeOnClick = false }) => {
             <Button
               variant="outline"
               className={
-                "font-semibold border-primary text-primary hover:bg-primary hover:text-white px-6 h-8.5 grow w-auto rounded-md lg:rounded-full"
+                "font-semibold border-primary text-primary hover:bg-primary hover:text-white px-6 h-8.5 rounded-md lg:rounded-full dark:bg-transparent dark:hover:bg-primary dark:hover:border-primary dark:text-white"
               }
               onClick={() => {
                 signOut(auth)

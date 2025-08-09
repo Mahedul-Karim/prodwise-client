@@ -13,10 +13,12 @@ import NavActions from "../NavActions";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/common/Logo";
 import Nav from "./Nav";
+import Toggle from "@/components/common/toggle/Toggle";
 
 const MobileNav = () => {
   return (
-    <div className="block lg:hidden">
+    <div className="flex items-center gap-2 lg:hidden">
+      <Toggle />
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost">

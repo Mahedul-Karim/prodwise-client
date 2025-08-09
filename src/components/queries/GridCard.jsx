@@ -38,7 +38,7 @@ const GridCard = ({
           className="aspect-[16/12] object-cover w-full"
         />
         <div className="absolute top-2 xs:top-4 right-2 xs:right-4">
-          <Badge className="bg-accent text-dark rounded-full font-semibold xs:text-sm">
+          <Badge className="bg-accent text-dark dark:text-black rounded-full font-semibold xs:text-sm">
             <MessageCircle />
             {recommendationCount}
           </Badge>
@@ -56,10 +56,10 @@ const GridCard = ({
             {productBrand}
           </Badge>{" "}
         </p>
-        <Alert className="border-none bg-white my-2 hidden md:grid">
+        <Alert className="border-none bg-white dark:bg-zinc-700 my-2 hidden md:grid">
           <MessageCircleWarning />
           <AlertTitle className="text-dark font-semibold">Question!</AlertTitle>
-          <AlertDescription className="text-muted">
+          <AlertDescription className="text-muted dark:text-dark/80">
             {queryTitle}
           </AlertDescription>
         </Alert>
