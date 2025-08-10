@@ -70,11 +70,11 @@ const SignUpForm = () => {
 
   return (
     <>
-      <div className="flex items-center justify-center border-b border-border py-4">
+      <div className="flex items-center justify-center border-b border-border dark:border-border/10 py-4">
         <Logo />
       </div>
       <Container className="p-4 flex flex-col items-center justify-center h-[calc(100%_-_73px)]">
-        <Card className="w-full border-none shadow-none gap-4 max-w-[360px]">
+        <Card className="w-full border-none bg-transparent shadow-none gap-4 max-w-[360px]">
           <CardHeader className="px-0">
             <CardTitle className="text-dark text-xl font-bold text-center">
               Create an Account

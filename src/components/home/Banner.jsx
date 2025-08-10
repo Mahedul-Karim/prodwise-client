@@ -6,12 +6,13 @@ import Highlight from "../common/Highlight";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay,Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 import { SLIDER_DATA } from "@/lib/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router";
 
-const Slides = ({ title, subtitle, btnText, src, highlight }) => {
+const Slides = ({ title, subtitle, btnText, src, highlight, to }) => {
   return (
     <div className="grid sm:grid-cols-2 gap-2">
       <div className="flex flex-col items-center sm:items-start justify-center gap-2 relative z-[1] sm:pl-4">
@@ -24,8 +25,11 @@ const Slides = ({ title, subtitle, btnText, src, highlight }) => {
           {subtitle}
         </p>
         <div>
-          <Button className="sm:h-10 font-semibold rounded-full mt-2 sm:px-8 px-5 hover:bg-primary hover:scale-[1.1]">
-            {btnText}
+          <Button
+            className="sm:h-10 font-semibold rounded-full mt-2 sm:px-8 px-5 hover:bg-primary hover:scale-[1.1]"
+            asChild
+          >
+            <Link to={to}>{btnText}</Link>
           </Button>
         </div>
       </div>
@@ -47,7 +51,7 @@ const Banner = () => {
   return (
     <section className="relative group">
       <Swiper
-        modules={[Pagination,Autoplay]}
+        modules={[Pagination, Autoplay]}
         pagination={{ clickable: true }}
         loop
         onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -65,6 +69,7 @@ const Banner = () => {
                 highlight={data.highlight}
                 src={data.src}
                 btnText={data.btnText}
+                to={data.to}
               />
             </Container>
           </SwiperSlide>

@@ -39,6 +39,7 @@ export const SLIDER_DATA = [
     highlight: "Product",
     src: "/slide-1.png",
     btnText: "Explore Alternatives",
+    to:'/queries'
   },
   {
     title: "Not Sure Which Product to Pick?",
@@ -46,6 +47,7 @@ export const SLIDER_DATA = [
     highlight: "Pick?",
     src: "/slide-2.png",
     btnText: "Ask a Question",
+    to:'/query/create'
   },
   {
     title: "Help Others Choose Right",
@@ -54,6 +56,7 @@ export const SLIDER_DATA = [
     highlight: "Right",
     src: "/slide-3.png",
     btnText: "Add a Recommendation",
+    to:'/recommendations'
   },
 ];
 
