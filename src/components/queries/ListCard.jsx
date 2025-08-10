@@ -28,7 +28,7 @@ const ListCard = ({
               className="xs:w-[200px] aspect-[16/12] rounded-md object-cover"
             />
             <div className="absolute top-2 right-2">
-              <Badge className="bg-accent text-dark rounded-full font-semibold xs:text-sm">
+              <Badge className="bg-accent rounded-full font-semibold xs:text-sm text-dark dark:text-black">
                 <MessageCircle />
                 {recommendationCount}
               </Badge>
@@ -54,7 +54,7 @@ const ListCard = ({
               className={buttonVariants({
                 variant: "default",
                 className:
-                  "w-full font-semibold !text-dark !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9",
+                  "w-full font-semibold !text-dark dark:!text-black !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9",
               })}
             >
               Recommend
@@ -63,12 +63,12 @@ const ListCard = ({
         </div>
 
         <div className="grow flex flex-col gap-1">
-          <Alert className="border-none bg-white my-2 grid">
+          <Alert className="border-none bg-white dark:bg-zinc-700 my-2 grid">
             <MessageCircleWarning />
             <AlertTitle className="text-dark font-semibold">
               Question!
             </AlertTitle>
-            <AlertDescription className="text-muted">
+            <AlertDescription className="text-muted dark:text-dark/80">
               {queryTitle}
             </AlertDescription>
           </Alert>

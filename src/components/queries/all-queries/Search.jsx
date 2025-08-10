@@ -24,15 +24,15 @@ const SearchQueries = () => {
   }, [searchText]);
 
   return (
-    <div className="grow md:grow-0 flex items-center gap-2 border-border xs:h-10 bg-white border pr-2 rounded-md">
+    <div className="grow md:grow-0 flex items-center gap-2 dark:border-border/20 border-border xs:h-10 bg-white dark:bg-transparent border pr-2 rounded-md">
       <Input
         type={"text"}
         placeholder="Search queries"
-        className="bg-transparent border-none shadow-none placeholder:text-muted placeholder:font-medium text-dark font-medium placeholder:text-sm"
+        className="bg-transparent border-none shadow-none placeholder:text-muted placeholder:font-medium text-dark font-medium placeholder:text-sm dark:bg-transparent"
         value={searchText}
         onChange={(e) => setSearchText(e.target.value)}
       />
-      <Search />
+      <Search className="text-dark" />
     </div>
   );
 };
