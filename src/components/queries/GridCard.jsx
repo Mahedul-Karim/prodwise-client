@@ -78,7 +78,7 @@ const GridCard = ({
           className={buttonVariants({
             variant: "default",
             className:
-              "w-full font-semibold !text-dark !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9",
+              "w-full font-semibold !text-dark dark:!text-black !bg-yellow-300 xs:text-sm text-xs !h-8 xs:!h-9",
           })}
         >
           {!isUserQuery ? "Recommend" : "View Details"}

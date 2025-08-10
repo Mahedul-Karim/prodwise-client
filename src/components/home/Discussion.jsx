@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Container from "../common/Container";
 import { Button } from "../ui/button";
 import { useInView, motion } from "framer-motion";
+import { Link } from "react-router";
 
 const Discussion = () => {
   const imageRef = useRef(null);
@@ -44,8 +45,10 @@ const Discussion = () => {
           opinion matters here.
         </p>
         <div>
-          <Button className="rounded-full font-semibold h-10 px-8">
+          <Button asChild className="rounded-full font-semibold h-10 px-8">
+            <Link to={'/queries'} >
             Explore More
+            </Link>
           </Button>
         </div>
       </motion.div>

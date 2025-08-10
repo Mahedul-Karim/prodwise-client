@@ -4,7 +4,7 @@ import CountUp from "react-countup";
 
 const CounterCard = ({ icon, title, suffix, subtitle }) => {
   return (
-    <Card className="border-none bg-white shadow-none">
+    <Card className="border-none bg-white dark:bg-border/5 shadow-none">
       <CardContent className="items-center flex flex-col gap-1">
         <div>
           <img src={icon} alt="" className="size-16 object-cover" />
