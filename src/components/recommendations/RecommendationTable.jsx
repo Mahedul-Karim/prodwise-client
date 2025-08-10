@@ -48,7 +48,7 @@ const RecommendationTable = ({
   };
 
   return (
-    <div className="mt-6 overflow-auto border border-border rounded-md">
+    <div className="mt-6 overflow-auto border border-border dark:border-border/20 rounded-md">
       <Table>
         <TableHeader className="bg-muted/10">
           <TableRow>

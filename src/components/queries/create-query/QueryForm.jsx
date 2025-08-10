@@ -96,7 +96,7 @@ const QueryForm = ({ isToUpdate = false }) => {
           <Input
             type={"text"}
             placeholder="Type the name of product you are getting problem with"
-            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={productName}
             onChange={(e) => setProductName(e.target.value)}
             disabled={isLoading}
@@ -107,7 +107,7 @@ const QueryForm = ({ isToUpdate = false }) => {
           <Input
             type={"text"}
             placeholder="Type the name of company of the product"
-            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={productBrand}
             onChange={(e) => setProductBrand(e.target.value)}
             disabled={isLoading}
@@ -118,7 +118,7 @@ const QueryForm = ({ isToUpdate = false }) => {
           <Input
             type={"text"}
             placeholder="Type the link of an image of the product"
-            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={productImage}
             onChange={(e) => setProductImage(e.target.value)}
             disabled={isLoading}
@@ -129,7 +129,7 @@ const QueryForm = ({ isToUpdate = false }) => {
           <Input
             type={"text"}
             placeholder="Is there any Better product that gives me the same quality?"
-            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={queryTitle}
             onChange={(e) => setQueryTitle(e.target.value)}
             disabled={isLoading}
@@ -139,7 +139,7 @@ const QueryForm = ({ isToUpdate = false }) => {
           <Label className="font-semibold text-dark">Boycotting Reason:</Label>
           <Textarea
             placeholder="the reason you don’t want this product"
-            className="h-24 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium"
+            className="h-24 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={boycottingReason}
             onChange={(e) => setBoycottingReason(e.target.value)}
             disabled={isLoading}

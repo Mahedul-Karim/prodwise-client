@@ -23,7 +23,7 @@ function TableHeader({
   return (
     (<thead
       data-slot="table-header"
-      className={cn("[&_tr]:border-b [&_tr]:border-border", className)}
+      className={cn("[&_tr]:border-b [&_tr]:border-border dark:[&_tr]:border-border/20", className)}
       {...props} />)
   );
 }
@@ -60,7 +60,7 @@ function TableRow({
     (<tr
       data-slot="table-row"
       className={cn(
-        "data-[state=selected]:bg-muted border-b transition-colors border-border",
+        "data-[state=selected]:bg-muted border-b transition-colors border-border dark:border-border/20",
         className
       )}
       {...props} />)

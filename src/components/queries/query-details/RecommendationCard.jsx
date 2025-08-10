@@ -15,7 +15,7 @@ const RecommendationCard = ({
   currentTime,
 }) => {
   return (
-    <Card className="border-border/50 shadow-none bg-background gap-4 py-4">
+    <Card className="border-border/50 dark:border-border/20 shadow-none bg-background gap-4 py-4">
       <CardHeader className="px-2 xs:px-4">
         <div className="flex flex-col md:flex-row md:items-center gap-4">
           <div>

@@ -27,7 +27,7 @@ const QueryDetails = () => {
   }, []);
 
   return (
-    <main className="border-t border-border py-8 md:py-16 bg-background">
+    <main className="border-t border-border dark:border-border/20 py-8 md:py-16 bg-background">
       <Container>
         {isLoading && (
           <div className="h-screen grid place-items-center">

@@ -22,7 +22,7 @@ import Container from "@/components/common/Container";
 
 export default function AboutPage() {
   return (
-    <main className="border-t border-border py-8 md:py-16 overflow-x-clip">
+    <main className="border-t border-border dark:border-border/20 py-8 md:py-16 overflow-x-clip">
       <Container>
         <section className="relative">
           <div

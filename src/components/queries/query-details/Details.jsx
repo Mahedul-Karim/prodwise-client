@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Details = ({ data }) => {
   return (
-    <section className="p-4 bg-white rounded-md grid md:grid-cols-2 gap-4">
+    <section className="p-4 bg-white dark:bg-border/10 rounded-md grid md:grid-cols-2 gap-4">
       <div className="relative">
         <img
           src={data?.productImage}
@@ -15,7 +15,7 @@ const Details = ({ data }) => {
           className="aspect-[16/10] md:aspect-auto h-full object-cover w-full rounded-md max-h-[450px]"
         />
         <div className="absolute top-2 xs:top-4 right-2 xs:right-4">
-          <Badge className="bg-accent text-dark rounded-full font-semibold xs:text-sm">
+          <Badge className="bg-accent text-dark rounded-full font-semibold xs:text-sm dark:text-white">
             <MessageCircle />
             {data?.recommendationCount}
           </Badge>
@@ -54,10 +54,10 @@ const Details = ({ data }) => {
             </div>
           </div>
         </div>
-        <Alert className="border-border my-2">
-          <PackageSearch />
+        <Alert className="border-border dark:border-border/20 my-2 bg-white dark:bg-zinc-600">
+          <PackageSearch className="!text-dark" />
           <AlertTitle className="text-dark font-semibold">Product</AlertTitle>
-          <AlertDescription className="text-muted">
+          <AlertDescription className="text-muted dark:text-white/80">
             {data?.productName}
           </AlertDescription>
         </Alert>

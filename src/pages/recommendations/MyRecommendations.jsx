@@ -19,7 +19,7 @@ const MyRecommendations = () => {
 
   return (
     <main className="border-t border-border bg-background py-8 md:py-16">
-      <Container className="bg-white p-6 rounded-md">
+      <Container className="bg-white p-6 rounded-md dark:bg-border/10">
         <Title className="!my-0">My Recommendations</Title>
         {isLoading && (
           <div className="h-60 grid place-items-center">

@@ -82,7 +82,7 @@ const RecommendationForm = ({ data, setData, setRecommendations }) => {
   };
 
   return (
-    <section className="p-6 bg-white rounded-md mt-10">
+    <section className="p-6 bg-white dark:bg-border/10 rounded-md mt-10">
       <h3 className="flex items-center gap-2 text-lg sm:text-xl text-dark font-bold justify-center">
         <Star className="text-yellow-500 shrink-0" /> Add Your Recommendation
       </h3>
@@ -97,7 +97,7 @@ const RecommendationForm = ({ data, setData, setRecommendations }) => {
           <Input
             type={"text"}
             placeholder="Great alternatives of the product"
-            className="h-11 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted/60 text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={recommendationTitle}
             onChange={(e) =>
               dispatch({
@@ -116,7 +116,7 @@ const RecommendationForm = ({ data, setData, setRecommendations }) => {
           <Input
             type={"text"}
             placeholder="Name of the recommended product"
-            className="h-11 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={recommendedProductName}
             onChange={(e) =>
               dispatch({
@@ -135,7 +135,7 @@ const RecommendationForm = ({ data, setData, setRecommendations }) => {
           <Input
             type={"text"}
             placeholder="https://example.com"
-            className="h-11 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium"
+            className="h-11 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={recommendedProductImage}
             onChange={(e) =>
               dispatch({
@@ -153,7 +153,7 @@ const RecommendationForm = ({ data, setData, setRecommendations }) => {
           </Label>
           <Textarea
             placeholder="Share your experience and why this product would be great alternative"
-            className="h-24 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium"
+            className="h-24 px-4 placeholder:text-muted/60  text-dark placeholder:text-sm !text-base font-medium dark:bg-transparent dark:border-border/20"
             value={recommendationReason}
             onChange={(e) =>
               dispatch({

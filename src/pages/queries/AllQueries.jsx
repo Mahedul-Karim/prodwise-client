@@ -27,7 +27,7 @@ const AllQueries = () => {
   }, [search]);
 
   return (
-    <main className="border-t border-border py-8 md:py-16">
+    <main className="border-t border-border dark:border-border/20 py-8 md:py-16">
       <Container>
         <div className="flex items-center justify-end gap-2 xs:gap-4">
           <div className="bg-primary/10 p-1 rounded-md flex items-center gap-1 border border-primary/5">

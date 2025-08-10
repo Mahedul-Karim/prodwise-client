@@ -5,7 +5,7 @@ import Empty from "@/components/error/Empty";
 
 const QueryRecommendations = ({ recommendations = [] }) => {
   return (
-    <section className="p-6 bg-white rounded-md mt-10">
+    <section className="p-6 bg-white dark:bg-border/10 rounded-md mt-10">
       <h3 className="flex items-center gap-2 text-lg sm:text-xl text-dark font-bold justify-center">
         <Heart className="text-primary shrink-0" /> Community Recommendations
       </h3>

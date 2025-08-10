@@ -10,7 +10,7 @@ const UpdateQuery = () => {
 
   return (
     <main className="bg-background py-8 md:py-16 border-t border-border">
-      <Container className="bg-white p-6 rounded-md shadow-md max-w-[700px]">
+      <Container className="bg-white dark:bg-border/10 p-6 rounded-md shadow-md max-w-[700px]">
         <Title className="!my-0">Update Query</Title>
         <QueryForm isToUpdate />
       </Container>
