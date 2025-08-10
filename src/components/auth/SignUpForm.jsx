@@ -74,7 +74,7 @@ const SignUpForm = () => {
         <Logo />
       </div>
       <Container className="p-4 flex flex-col items-center justify-center h-[calc(100%_-_73px)]">
-        <Card className="w-full border-none bg-transparent shadow-none gap-4 max-w-[360px] ">
+        <Card className="w-full border-none bg-transparent shadow-none gap-4 max-w-[360px]">
           <CardHeader className="px-0">
             <CardTitle className="text-dark text-xl font-bold text-center">
               Create an Account
@@ -87,7 +87,7 @@ const SignUpForm = () => {
                 <Input
                   type={"text"}
                   placeholder="Your full name"
-                  className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium rounded-full"
+                  className="h-11 px-4 placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm !text-base font-medium rounded-full dark:bg-transparent"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   disabled={isLoading}
@@ -98,7 +98,7 @@ const SignUpForm = () => {
                 <Input
                   type={"email"}
                   placeholder="Your email address"
-                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium dark:bg-transparent"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isLoading}
@@ -109,7 +109,7 @@ const SignUpForm = () => {
                 <Input
                   type={"text"}
                   placeholder="Your image link"
-                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium dark:bg-transparent"
                   value={photoURL}
                   onChange={(e) => setPhotoURL(e.target.value)}
                   disabled={isLoading}
@@ -120,7 +120,7 @@ const SignUpForm = () => {
                 <Input
                   type={"password"}
                   placeholder="Your password"
-                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium"
+                  className="h-11 px-4 rounded-full placeholder:text-muted placeholder:font-medium text-dark placeholder:text-sm md:!text-base text-sm font-medium dark:bg-transparent"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   disabled={isLoading}
