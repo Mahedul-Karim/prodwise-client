@@ -39,7 +39,7 @@ export default function AboutPage() {
                 About prodwise
               </Badge>
             </div>
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl text-dark">
               {"Ask smarter. Recommend better."}
             </h1>
             <p className="mt-4 max-w-2xl text-muted-foreground">
@@ -70,7 +70,7 @@ export default function AboutPage() {
 
         <section className="py-16">
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
+            <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl text-dark">
               What we do
             </h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
@@ -80,12 +80,12 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <Card className="border-muted/50">
+            <Card className="border-muted/50 dark:bg-background dark:border-muted/10">
               <CardHeader>
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[#c5172e]/10">
                   <Search className="h-5 w-5 text-[#c5172e]" />
                 </div>
-                <CardTitle>Ask</CardTitle>
+                <CardTitle className={'text-dark'}>Ask</CardTitle>
                 <CardDescription>
                   Post a specific product question with context and constraints.
                 </CardDescription>
@@ -97,12 +97,12 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-muted/50">
+            <Card className="border-muted/50 dark:bg-background dark:border-muted/10">
               <CardHeader>
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[#c5172e]/10">
                   <HeartHandshake className="h-5 w-5 text-[#c5172e]" />
                 </div>
-                <CardTitle>Recommend</CardTitle>
+                <CardTitle className={'text-dark'}>Recommend</CardTitle>
                 <CardDescription>
                   Share products you genuinely trust and why they fit.
                 </CardDescription>
@@ -114,12 +114,12 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-muted/50">
+            <Card className="border-muted/50 dark:bg-background dark:border-muted/10">
               <CardHeader>
                 <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[#c5172e]/10">
                   <Sparkles className="h-5 w-5 text-[#c5172e]" />
                 </div>
-                <CardTitle>Decide</CardTitle>
+                <CardTitle className={'text-dark'}>Decide</CardTitle>
                 <CardDescription>
                   Summaries highlight the best options for your criteria.
                 </CardDescription>
@@ -133,7 +133,7 @@ export default function AboutPage() {
           </div>
         </section>
         <section className="pb-8 sm:pb-12">
-          <div className="grid gap-4 rounded-xl border border-border bg-background p-6 sm:grid-cols-3">
+          <div className="grid gap-4 rounded-xl border border-border bg-background dark:border-border/20 p-6 sm:grid-cols-3">
             <Stat label="Questions asked" value="1,200+" />
             <Stat label="Recommendations shared" value="5,800+" />
             <Stat label="Response satisfaction" value="96%" />
@@ -170,10 +170,10 @@ export default function AboutPage() {
         </section>
 
         <section className="pb-20">
-          <Card className="border-border">
+          <Card className="border-border bg-white dark:bg-border/10 dark:border-border/20">
             <CardHeader className="gap-2 sm:flex sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <CardTitle className="text-xl sm:text-2xl">
+                <CardTitle className="text-xl sm:text-2xl text-dark">
                   Join prodwise
                 </CardTitle>
                 <CardDescription>
@@ -202,8 +202,8 @@ export default function AboutPage() {
 
 function Stat({ label = "Label", value = "0" }) {
   return (
-    <div className="rounded-lg border border-border bg-white p-4">
-      <div className="text-2xl font-semibold tracking-tight">{value}</div>
+    <div className="rounded-lg border border-border dark:border-border/20 bg-white dark:bg-border/10 p-4">
+      <div className="text-2xl font-semibold tracking-tight text-dark">{value}</div>
       <div className="mt-1 text-sm text-muted-foreground">{label}</div>
     </div>
   );
@@ -215,12 +215,12 @@ function Value({
   desc = "Description",
 }) {
   return (
-    <Card className="border-muted/50">
+    <Card className="border-muted/50 bg-white dark:bg-border/20">
       <CardHeader className="space-y-3">
         <div className="flex h-10 w-10 items-center justify-center rounded-md bg-[#c5172e]/10">
           {icon}
         </div>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-dark">{title}</CardTitle>
         <CardDescription>{desc}</CardDescription>
       </CardHeader>
     </Card>
